@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import ListaTareas from "./toDolist";
+import AgregarNota from "./addToDolist";
 
-function App() {
+export default function ToDoList() {
+  const [tareas, setTareas] = useState([]);
+
+  function agregarTarea(todo) {
+    setTareas([...tareas, todo]);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>To do List </h1>
+      <AgregarNota handleSubmit={agregarTarea} />
+      <ListaTareas tareas={tareas} setTareas={setTareas} />
     </div>
   );
 }
 
-export default App;
