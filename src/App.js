@@ -10,11 +10,13 @@ export default function ToDoList() {
   }
 
   return (
-    <div className="App">
-      <h1>To do List </h1>
+  <div className="d-flex text-center justify-content-center m-4">
+    <div className="App w-25 mt-4 p-3 bg-warning">
+      <h1 className="text-primary fs-1">To do List </h1>
       <AgregarNota handleSubmit={agregarTarea} />
       <ListaTareas tareas={tareas} setTareas={setTareas} />
     </div>
+  </div>
   );
 }
 
